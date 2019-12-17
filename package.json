@@ -1,7 +1,7 @@
 {
-  "name": "balena-electron-vue-pidisplay",
+  "name": "electron-vue-pidisplay",
   "version": "0.1.0",
-  "description": "Balena Electron Vue app",
+  "description": "Electron Vue app",
   "author": "Art Dahm <art@dahm.com>",
   "private": true,
   "scripts": {
