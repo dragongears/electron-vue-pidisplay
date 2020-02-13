@@ -2,10 +2,10 @@ module.exports = {
   pluginOptions: {
     electronBuilder: {
       builderOptions: {
-        productName: "Balena Electron Vue PiDisplay",
-        appId: "com.dragongears.balena-electron-vue-pidisplay",
+        productName: "Electron Vue PiDisplay",
+        appId: "com.dragongears.electron-vue-pidisplay",
         appImage: {
-          "systemIntegration": "doNotAsk"
+          // "systemIntegration": "doNotAsk"
         },
         dmg: {
           contents: [

@@ -36,7 +36,7 @@
   import VueInstagram from 'vue-instagram'
 
   export default {
-    name: 'balena-electron-vue-pidisplay',
+    name: 'electron-vue-pidisplay',
     components: {
       VueInstagram,
       WeatherPanel,
