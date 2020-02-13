@@ -1,7 +1,7 @@
 # balena-electron-vue-pidisplay
 
 > A Raspberry Pi project to display the time and weather next to the most recent image in an Instagram feed.
-> Based on [balena-electron-vuecli3](https://github.com/Lurow/balena-electron-vuecli3)
+> A fork of my previous project [balena-electron-vue-pidisplay](https://github.com/dragongears/balena-electron-vue-pidisplay) with the dependence on Balena removed
 
 #### Storing a DarkSky API Key and Instagram Token for Development and Production
 
@@ -17,17 +17,17 @@ For a Balena (formerly Resin.io) device, create a DARKSKY device variable and an
 
 ``` bash
 # install dependencies
-yarn install
+npm install
 
 # serve with hot reload at localhost:9080
-yarn run dev
+npm run dev
 
 # build electron application for production
-yarn run build
+npm run build
 
 
 # lint all JS/Vue component files in `src/`
-yarn run lint
+npm run lint
 
 ```
 
@@ -44,27 +44,27 @@ yarn run lint
 - Balena on the Raspberry Pi
 
   https://www.balena.io/docs/learn/getting-started/raspberrypi3/nodejs/
-  
+
 - Rotating the Raspberry Pi display in a Balena application
 
   In the device configuration tab of the Balena dashboard, create a RESIN_HOST_CONFIG_lcd_rotate custom environment variable and give it a value of 2 to rotate the Raspberry Pi display 180 degrees.
-  
+
 - CSS Flexbox
 
   https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
-  
+
 - Working with the DarkSky API and using cors-anywhere to access the API in a development environment.
 
   https://darksky.net/dev
 
   https://cors-anywhere.herokuapp.com/
-  
+
 - I tried using Skycons and the vue-skycon NPM module, but there seems to be a memory leak that caused the application to crash after a few days.
 
   https://darkskyapp.github.io/skycons/
-  
+
   https://github.com/timleland/vue-skycon
-  
+
 ---
 
 This project was generated with [electron-vue](https://github.com/SimulatedGREG/electron-vue)@[3a1e893](https://github.com/SimulatedGREG/electron-vue/tree/3a1e893e10e8dcfb4c5e5580810ed70f74b3a83e) using [vue-cli](https://github.com/vuejs/vue-cli).
