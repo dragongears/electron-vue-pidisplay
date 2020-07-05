@@ -8,10 +8,9 @@
 ##### Development
 Create a .env.local file in the root directory of your project.
 Add an environment variable containing your DarkSky API key on a new line in the form of VUE_APP_DARKSKY=YOUR_API_KEY_HERE
-Add an environment variable containing your Instagram token on a new line in the form of VUE_APP_INSTAGRAM=YOUR_TOKEN_HERE
+Add an environment variable containing an Instagram username on a new line in the form of VUE_APP_INSTAGRAM_USERNAME=USERNAME_HERE
 
 ##### Production
-For a Balena (formerly Resin.io) device, create a DARKSKY device variable and an INSTAGRAM device variable in the dashboard.
 
 #### Build Setup
 

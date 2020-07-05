@@ -1,6 +1,6 @@
 {
   "name": "electron-vue-pidisplay",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Electron Vue app",
   "author": "Art Dahm <art@dahm.com>",
   "private": true,
@@ -22,8 +22,7 @@
   "dependencies": {
     "axios": "^0.18.1",
     "lockfile": "^1.0.4",
-    "vue": "^2.6.6",
-    "vue-instagram": "^2.0.1"
+    "vue": "^2.6.6"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
