@@ -1,4 +1,4 @@
-# balena-electron-vue-pidisplay
+# electron-vue-pidisplay
 
 > A Raspberry Pi project to display the time and weather next to the most recent image in an Instagram feed.
 > A fork of my previous project [balena-electron-vue-pidisplay](https://github.com/dragongears/balena-electron-vue-pidisplay) with the dependence on Balena removed

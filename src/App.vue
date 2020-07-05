@@ -3,7 +3,6 @@
     <section class="left-side">
       <date-and-time class="dat"> </date-and-time>
       <weather-panel
-        :update-interval="3600"
         :api-key="darkSkyApiKey"
         latitude="26.194221"
         longitude="-80.1447177"
@@ -47,8 +46,6 @@ export default {
       this.$electron.shell.openExternal(link)
     },
     showUpdateDateTime() {
-      console.log(this.$env.INSTAGRAM_USERNAME)
-      console.log(this.$env.DARKSKY)
       this.lastUpdated = new Date()
     },
   },
