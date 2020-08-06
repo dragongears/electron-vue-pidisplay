@@ -15,26 +15,31 @@
     "postuninstall": "electron-builder install-app-deps",
     "build:pi": "vue-cli-service electron:build --legacy --armv7l",
     "start": "NODE_ENV='production' startx /home/pi/electron-vue-pidisplay/node_modules/electron/dist/electron /home/pi/electron-vue-pidisplay/dist_electron/bundled &",
-    "rsync": "rsync -vaz --rsh=\"ssh -l pi\" ~/Dropbox/Projects/node/electron-vue-pidisplay/dist_electron 192.168.0.81:/home/pi/electron-vue-pidisplay --exclude=node_modules"
+    "rsync": "rsync -vaz --rsh=\"ssh -l pi\" ~/Dropbox/Projects/node/electron-vue-pidisplay/dist_electron 192.168.0.81:/home/pi/electron-vue-pidisplay --exclude=node_modules",
+    "build-icon": "npx electron-icon-builder --input=./public/icon.png --output=build --flatten"
   },
-  "web": "web.js",
   "main": "background.js",
   "dependencies": {
-    "axios": "^0.18.1",
-    "lockfile": "^1.0.4",
-    "vue": "^2.6.6"
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "vue": "^2.6.11"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.5.0",
-    "@vue/cli-plugin-eslint": "^3.5.0",
-    "@vue/cli-service": "^3.5.0",
+    "@vue/cli-plugin-babel": "~4.4.0",
+    "@vue/cli-plugin-eslint": "~4.4.0",
+    "@vue/cli-service": "~4.4.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
-    "electron": "^3.0.5",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0",
+    "electron": "^9.0.0",
+    "electron-devtools-installer": "^3.1.0",
+    "electron-icon-builder": "^1.0.2",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-vue": "^6.2.2",
     "node-sass": "^4.14.1",
-    "sass-loader": "^7.1.0",
-    "vue-cli-plugin-electron-builder": "^1.4.6",
-    "vue-template-compiler": "^2.5.21"
+    "prettier": "^1.19.1",
+    "sass-loader": "^9.0.2",
+    "vue-cli-plugin-electron-builder": "~2.0.0-rc.4",
+    "vue-template-compiler": "^2.6.11"
   }
 }

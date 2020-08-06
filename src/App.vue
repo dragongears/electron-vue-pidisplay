@@ -11,8 +11,14 @@
       </weather-panel>
       <div class="last-updated">
         <div v-if="lastUpdated">
-          Last updated: {{ lastUpdated.toDateString('en-US', { weekday: 'long' }) }}
-          {{ lastUpdated.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' }) }}
+          Last updated:
+          {{ lastUpdated.toDateString('en-US', { weekday: 'long' }) }}
+          {{
+            lastUpdated.toLocaleTimeString('en-US', {
+              hour: 'numeric',
+              minute: 'numeric'
+            })
+          }}
         </div>
       </div>
     </section>
@@ -23,38 +29,38 @@
 </template>
 
 <script>
-import DateAndTime from './components/DateAndTime'
-import InstagramImage from './components/InstagramImage'
-import WeatherPanel from './components/Weather/WeatherPanel'
+import DateAndTime from './components/DateAndTime';
+import InstagramImage from './components/InstagramImage';
+import WeatherPanel from './components/Weather/WeatherPanel';
 
 export default {
   name: 'electron-vue-pidisplay',
   components: {
     InstagramImage,
     WeatherPanel,
-    DateAndTime,
+    DateAndTime
   },
   data() {
     return {
       instagramUsername: this.$env.INSTAGRAM_USERNAME,
       darkSkyApiKey: this.$env.DARKSKY,
-      lastUpdated: null,
-    }
+      lastUpdated: null
+    };
   },
   methods: {
     open(link) {
-      this.$electron.shell.openExternal(link)
+      this.$electron.shell.openExternal(link);
     },
     showUpdateDateTime() {
-      this.lastUpdated = new Date()
-    },
-  },
-}
+      this.lastUpdated = new Date();
+    }
+  }
+};
 </script>
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
-@import '/assets/css/_variables.scss';
+@import '/src/assets/css/_variables.scss';
 
 * {
   box-sizing: border-box;
