@@ -42,8 +42,8 @@ export default {
   },
   data() {
     return {
-      instagramUsername: this.$env.INSTAGRAM_USERNAME,
-      darkSkyApiKey: this.$env.DARKSKY,
+      instagramUsername: process.env.VUE_APP_INSTAGRAM_USERNAME,
+      darkSkyApiKey: process.env.VUE_APP_DARKSKY,
       lastUpdated: null
     };
   },

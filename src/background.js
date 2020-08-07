@@ -6,24 +6,6 @@ import { app, protocol, BrowserWindow, Menu } from 'electron';
 import { createProtocol } from 'vue-cli-plugin-electron-builder/lib';
 import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer';
 
-// In production mode send VUE_APP_* environment variables from
-// the environment variables to the render process
-if (process.env.NODE_ENV === 'production') {
-  const { ipcMain } = require('electron');
-
-  ipcMain.on('request-env-vars', (event) => {
-    const vueAppVars = {};
-
-    Object.keys(process.env).forEach((key) => {
-      if (key.startsWith('VUE_APP_')) {
-        vueAppVars[key] = process.env[key];
-      }
-    });
-
-    event.returnValue = vueAppVars;
-  });
-}
-
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
 // Keep a global reference of the window object, if you don't, the window will
