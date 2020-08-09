@@ -34,7 +34,7 @@ import InstagramImage from './components/InstagramImage';
 import WeatherPanel from './components/Weather/WeatherPanel';
 
 export default {
-  name: 'electron-vue-pidisplay',
+  name: 'ElectronVuePidisplay',
   components: {
     InstagramImage,
     WeatherPanel,

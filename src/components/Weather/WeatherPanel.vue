@@ -1,6 +1,6 @@
 <template>
   <div class="weather">
-    <div class="weather-data" v-if="weather">
+    <div v-if="weather" class="weather-data">
       <weather-current
         :weather="weather"
         :icon-color="iconColor"
@@ -24,7 +24,7 @@ import WeatherCurrent from './WeatherCurrent';
 import WeatherForecast from './WeatherForecast';
 
 export default {
-  name: 'weather-panel',
+  name: 'WeatherPanel',
   components: {
     weatherCurrent: WeatherCurrent,
     weatherForecast: WeatherForecast
@@ -54,6 +54,9 @@ export default {
       iconColor: '#35495e'
     };
   },
+  mounted() {
+    this.getWeather();
+  },
   methods: {
     getWeather() {
       this.$http
@@ -81,9 +84,6 @@ export default {
           }
         });
     }
-  },
-  mounted() {
-    this.getWeather();
   }
 };
 </script>
