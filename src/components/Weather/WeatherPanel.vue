@@ -27,31 +27,31 @@ export default {
   name: 'WeatherPanel',
   components: {
     weatherCurrent: WeatherCurrent,
-    weatherForecast: WeatherForecast
+    weatherForecast: WeatherForecast,
   },
   props: {
     updateInterval: {
       type: Number,
-      default: 3600
+      default: 3600,
     },
     apiKey: {
       type: String,
-      required: true
+      required: true,
     },
     latitude: {
       type: String,
-      required: true
+      required: true,
     },
     longitude: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       weather: null,
       message: 'Waiting for weather data',
-      iconColor: '#35495e'
+      iconColor: '#35495e',
     };
   },
   mounted() {
@@ -61,7 +61,7 @@ export default {
     getWeather() {
       this.$http
         .get(
-          `https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${this.apiKey}/${this.latitude},${this.longitude}?exclude=minutely,alerts,flags`
+          `https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/${this.apiKey}/${this.latitude},${this.longitude}?exclude=minutely,alerts,flags`
         )
         .then((response) => {
           if (response.status === 200) {
@@ -69,7 +69,6 @@ export default {
           } else {
             this.weather = null;
             this.message = `${response.status}: ${response.statusText}`;
-            console.dir(response);
           }
           this.$emit('updated', Date.now());
           if (this.updateInterval) {
@@ -83,8 +82,8 @@ export default {
             setTimeout(this.getWeather, this.updateInterval * 1000);
           }
         });
-    }
-  }
+    },
+  },
 };
 </script>
 

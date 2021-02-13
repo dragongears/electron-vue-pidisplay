@@ -31,7 +31,6 @@ export default {
         .get(`https://www.instagram.com/${this.username}/channel/?__a=1`)
         .then((response) => {
           if (response.status === 200) {
-            console.dir(response);
             const edges =
               response.data.graphql.user.edge_owner_to_timeline_media.edges;
 
