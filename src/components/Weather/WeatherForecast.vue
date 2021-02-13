@@ -1,18 +1,18 @@
 <template>
   <div class="forecast-daily">
-    <template v-for="(day, index) in forecast.data">
+    <template v-for="(day, index) in forecast.daily">
       <div v-if="index > 0" :key="index" class="forecast-day">
         <div>{{ dow[(Math.floor(day.time / 86400) + 4) % 7] }}</div>
         <div>
           <weather-icon
-            :condition="day.icon"
+            :condition="day.weather[0].icon"
             width="20"
             height="20"
             :color="iconColor"
           ></weather-icon>
         </div>
-        <div>{{ Math.floor(day.temperatureHigh) }}</div>
-        <div>{{ Math.floor(day.temperatureLow) }}</div>
+        <div>{{ Math.floor(day.temp.max) }}</div>
+        <div>{{ Math.floor(day.temp.min) }}</div>
       </div>
     </template>
     <!--    <div class="forecast-day" v-for="(day, index) in forecast.data" :key="index">-->
@@ -32,23 +32,23 @@ import WeatherIcon from './WeatherIcon';
 export default {
   name: 'WeatherForecast',
   components: {
-    weatherIcon: WeatherIcon
+    weatherIcon: WeatherIcon,
   },
   props: {
     forecast: {
       type: Object,
-      required: true
+      required: true,
     },
     iconColor: {
       type: String,
-      default: '#000000'
-    }
+      default: '#000000',
+    },
   },
   data() {
     return {
-      dow: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+      dow: ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'],
     };
-  }
+  },
 };
 </script>
 

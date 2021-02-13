@@ -1,23 +1,23 @@
 <template>
   <div class="current-weather">
     <div>
-      {{ weather.currently.summary }}
+      {{ capitalize(weather.current.weather[0].description) }}
     </div>
     <div class="temps-today">
       <div>
         <weather-icon
-          :condition="weather.currently.icon"
+          :condition="weather.current.weather[0].icon"
           width="40"
           height="40"
           :color="iconColor"
         ></weather-icon>
         <span class="current-temp"
-          >{{ Math.floor(weather.currently.temperature) }}°</span
+          >{{ Math.floor(weather.current.temp) }}°</span
         >
       </div>
       <div class="hi-lo-today">
-        <div>Hi {{ Math.floor(weather.daily.data[0].temperatureHigh) }}°</div>
-        <div>Lo {{ Math.floor(weather.daily.data[0].temperatureLow) }}°</div>
+        <div>Hi {{ Math.floor(weather.daily[0].temp.max) }}°</div>
+        <div>Lo {{ Math.floor(weather.daily[0].temp.min) }}°</div>
       </div>
     </div>
   </div>
@@ -25,22 +25,24 @@
 
 <script>
 import WeatherIcon from './WeatherIcon';
+import capitalize from '../../mixins/capitalize';
 
 export default {
   name: 'WeatherCurrent',
   components: {
-    weatherIcon: WeatherIcon
+    weatherIcon: WeatherIcon,
   },
   props: {
     weather: {
       type: Object,
-      required: true
+      required: true,
     },
     iconColor: {
       type: String,
-      default: '#000000'
-    }
-  }
+      default: '#000000',
+    },
+  },
+  mixins: [capitalize],
 };
 </script>
 

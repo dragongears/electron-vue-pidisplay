@@ -6,11 +6,11 @@
         :icon-color="iconColor"
       ></weather-current>
       <weather-forecast
-        :forecast="weather.daily"
+        :forecast="weather"
         :icon-color="iconColor"
       ></weather-forecast>
       <div class="weather-summary">
-        {{ weather.hourly.summary }}
+        {{ capitalize(weather.daily[0].weather[0].description) }}
       </div>
     </div>
     <div v-else>
@@ -22,6 +22,7 @@
 <script>
 import WeatherCurrent from './WeatherCurrent';
 import WeatherForecast from './WeatherForecast';
+import capitalize from '../../mixins/capitalize';
 
 export default {
   name: 'WeatherPanel',
@@ -61,10 +62,11 @@ export default {
     getWeather() {
       this.$http
         .get(
-          `https://thingproxy.freeboard.io/fetch/https://api.darksky.net/forecast/${this.apiKey}/${this.latitude},${this.longitude}?exclude=minutely,alerts,flags`
+          `http://api.openweathermap.org/data/2.5/onecall?lat=${this.latitude}&lon=${this.longitude}&appid=${this.apiKey}&units=imperial&exclude=minutely,alerts`
         )
         .then((response) => {
           if (response.status === 200) {
+            console.dir(response.data);
             this.weather = response.data;
           } else {
             this.weather = null;
@@ -84,6 +86,7 @@ export default {
         });
     },
   },
+  mixins: [capitalize],
 };
 </script>
 
