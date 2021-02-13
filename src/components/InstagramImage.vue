@@ -11,26 +11,27 @@ export default {
   props: {
     updateInterval: {
       type: Number,
-      default: 3600
+      default: 3600,
     },
     username: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data() {
     return {
       imgSrc: '',
-      message: 'Waiting for Instagram data'
+      message: 'Waiting for Instagram data',
     };
   },
   computed: {},
   methods: {
     getImage() {
       this.$http
-        .get(`https://www.instagram.com/${this.username}/?__a=1`)
+        .get(`https://www.instagram.com/${this.username}/channel/?__a=1`)
         .then((response) => {
           if (response.status === 200) {
+            console.dir(response);
             const edges =
               response.data.graphql.user.edge_owner_to_timeline_media.edges;
 
@@ -53,11 +54,11 @@ export default {
             setTimeout(this.getImage, this.updateInterval * 1000);
           }
         });
-    }
+    },
   },
   mounted() {
     this.getImage();
-  }
+  },
 };
 </script>
 
