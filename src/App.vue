@@ -16,7 +16,7 @@
           {{
             lastUpdated.toLocaleTimeString('en-US', {
               hour: 'numeric',
-              minute: 'numeric'
+              minute: 'numeric',
             })
           }}
         </div>
@@ -38,13 +38,13 @@ export default {
   components: {
     InstagramImage,
     WeatherPanel,
-    DateAndTime
+    DateAndTime,
   },
   data() {
     return {
       instagramUsername: process.env.VUE_APP_INSTAGRAM_USERNAME,
-      darkSkyApiKey: process.env.VUE_APP_DARKSKY,
-      lastUpdated: null
+      darkSkyApiKey: process.env.VUE_APP_OPENWEATHER,
+      lastUpdated: null,
     };
   },
   methods: {
@@ -53,8 +53,8 @@ export default {
     },
     showUpdateDateTime() {
       this.lastUpdated = new Date();
-    }
-  }
+    },
+  },
 };
 </script>
 

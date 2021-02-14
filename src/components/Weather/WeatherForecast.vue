@@ -1,8 +1,8 @@
 <template>
   <div class="forecast-daily">
     <template v-for="(day, index) in forecast.daily">
-      <div v-if="index > 0" :key="index" class="forecast-day">
-        <div>{{ dow[(Math.floor(day.time / 86400) + 4) % 7] }}</div>
+      <div v-if="index > 0 && index < 7" :key="index" class="forecast-day">
+        <div>{{ dow[(Math.floor(day.dt / 86400) + 4) % 7] }}</div>
         <div>
           <weather-icon
             :condition="day.weather[0].icon"
@@ -15,14 +15,6 @@
         <div>{{ Math.floor(day.temp.min) }}</div>
       </div>
     </template>
-    <!--    <div class="forecast-day" v-for="(day, index) in forecast.data" :key="index">-->
-    <!--      <template v-if="index > 0">-->
-    <!--        <div>{{ dow[(Math.floor(day.time / 86400) + 4) % 7] }}</div>-->
-    <!--        <div><weather-icon :condition=day.icon width="20" height="20" :color="iconColor"></weather-icon></div>-->
-    <!--        <div>{{Math.floor(day.temperatureHigh)}}</div>-->
-    <!--        <div>{{Math.floor(day.temperatureLow)}}</div>-->
-    <!--      </template>-->
-    <!--    </div>-->
   </div>
 </template>
 
