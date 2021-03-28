@@ -27,15 +27,19 @@ export default {
   computed: {},
   methods: {
     getImage() {
+      const token =
+        'IGQVJWWEU2Y0pIb29pUHlKQW0ybENRdDBKRngzbGZAWWHBPdEszQlpraWFoeGxTMW4zeUpHbVpGdnNUUERyY0RaOWNkaTI0dTdHZAjkwLXhnVVV3a05uRnFzd1Q0RTdQNnVfQnVjb2dQOE9EeXl2Sm9NSQZDZD';
+      const fields = 'media_url';
+      const url = `https://graph.instagram.com/me/media?fields=${fields}&access_token=${token}`;
+
       this.$http
-        .get(`https://www.instagram.com/${this.username}/channel/?__a=1`)
+        .get(url)
         .then((response) => {
           if (response.status === 200) {
-            const edges =
-              response.data.graphql.user.edge_owner_to_timeline_media.edges;
+            const edges = response.data.data;
 
             if (edges.length) {
-              this.imgSrc = edges[0].node.display_url;
+              this.imgSrc = edges[0].media_url;
               this.$emit('updated', Date.now());
             }
           } else {

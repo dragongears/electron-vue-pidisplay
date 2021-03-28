@@ -66,7 +66,6 @@ export default {
         )
         .then((response) => {
           if (response.status === 200) {
-            console.dir(response.data);
             this.weather = response.data;
           } else {
             this.weather = null;
