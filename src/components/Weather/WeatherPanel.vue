@@ -62,7 +62,7 @@ export default {
     getWeather() {
       this.$http
         .get(
-          `http://api.openweathermap.org/data/2.5/onecall?lat=${this.latitude}&lon=${this.longitude}&appid=${this.apiKey}&units=imperial&exclude=minutely,alerts`
+          `https://api.openweathermap.org/data/2.5/onecall?lat=${this.latitude}&lon=${this.longitude}&appid=${this.apiKey}&units=imperial&exclude=minutely,alerts`
         )
         .then((response) => {
           if (response.status === 200) {
