@@ -66,7 +66,10 @@ export default {
               } else {
                 this.max = this.slideshowMaxImages;
               }
-              this.showing = this.max - 1;
+
+              if (this.showing > this.max) {
+                this.showing = this.max - 1;
+              }
 
               this.$emit('updated', Date.now());
             }
