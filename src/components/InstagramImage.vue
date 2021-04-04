@@ -102,25 +102,18 @@ export default {
 <style lang="scss">
 .slides {
   position: relative;
-  height: 300px;
-  padding: 0px;
-  margin: 0px;
   list-style-type: none;
 }
 
 .slide {
-  position: absolute;
   left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
   opacity: 0;
-  z-index: 1;
-
-  -webkit-transition: opacity 1s;
-  -moz-transition: opacity 1s;
-  -o-transition: opacity 1s;
+  position: absolute;
+  text-align: center;
+  top: 0px;
   transition: opacity 1s;
+  width: 100%;
+  z-index: 1;
 }
 
 .showing {

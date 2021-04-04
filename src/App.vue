@@ -111,6 +111,7 @@ main {
   > .right-side {
     margin-left: 8px;
     margin-right: 16px;
+    width: 440px;
 
     img {
       margin-top: 20px;
