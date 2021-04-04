@@ -23,7 +23,10 @@
       </div>
     </section>
     <section class="right-side">
-      <instagram-image :username="instagramUsername"></instagram-image>
+      <instagram-image
+        :token="instagramToken"
+        slideshow-max-images="10"
+      ></instagram-image>
     </section>
   </main>
 </template>
@@ -42,7 +45,7 @@ export default {
   },
   data() {
     return {
-      instagramUsername: process.env.VUE_APP_INSTAGRAM_USERNAME,
+      instagramToken: process.env.VUE_APP_INSTAGRAM_TOKEN,
       darkSkyApiKey: process.env.VUE_APP_OPENWEATHER,
       lastUpdated: null,
     };

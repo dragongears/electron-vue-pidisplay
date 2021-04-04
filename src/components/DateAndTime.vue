@@ -10,19 +10,19 @@ export default {
   name: 'DateAndTime',
   data() {
     return {
-      date: new Date()
+      date: new Date(),
     };
   },
   computed: {
-    dateStr: function() {
+    dateStr: function () {
       return this.date.toDateString('en-US', { weekday: 'long' });
     },
-    timeStr: function() {
+    timeStr: function () {
       return this.date.toLocaleTimeString('en-US', {
         hour: 'numeric',
-        minute: 'numeric'
+        minute: 'numeric',
       });
-    }
+    },
   },
   mounted() {
     this.intervalFunc();
@@ -32,8 +32,8 @@ export default {
       this.date = new Date();
 
       setTimeout(this.intervalFunc, 1000);
-    }
-  }
+    },
+  },
 };
 </script>
 
