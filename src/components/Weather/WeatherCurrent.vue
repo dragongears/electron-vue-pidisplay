@@ -5,16 +5,19 @@
     </div>
     <div class="temps-today">
       <div>
-        <weather-icon
-          :condition="weather.current.weather[0].icon"
-          width="40"
-          height="40"
-          :color="iconColor"
-        ></weather-icon>
-        <span class="current-temp"
-          >{{ Math.floor(weather.current.temp) }}°</span
-        >
+        <div class="precip">
+          <weather-icon
+            :condition="weather.current.weather[0].icon"
+            width="40"
+            height="40"
+            :color="iconColor"
+          ></weather-icon>
+          <div class="precip-percent">
+            {{ Math.floor((weather.daily[0].pop * 100) / 5) * 5 }}%
+          </div>
+        </div>
       </div>
+      <div class="current-temp">{{ Math.floor(weather.current.temp) }}°</div>
       <div class="hi-lo-today">
         <div>Hi {{ Math.floor(weather.daily[0].temp.max) }}°</div>
         <div>Lo {{ Math.floor(weather.daily[0].temp.min) }}°</div>
@@ -65,6 +68,16 @@ export default {
     .hi-lo-today {
       margin-left: 22px;
       font-size: 0.75em;
+    }
+
+    .precip {
+      display: flex;
+      flex-direction: column;
+      margin-right: 22px;
+    }
+    .precip-percent {
+      font-size: 16px;
+      text-align: center;
     }
   }
 }

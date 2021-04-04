@@ -11,6 +11,9 @@
             :color="iconColor"
           ></weather-icon>
         </div>
+        <div class="forcast-day__precip">
+          {{ Math.floor((day.pop * 100) / 5) * 5 }}%
+        </div>
         <div>{{ Math.floor(day.temp.max) }}</div>
         <div>{{ Math.floor(day.temp.min) }}</div>
       </div>
@@ -55,6 +58,10 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .forcast-day__precip {
+    margin-bottom: 4px;
   }
 }
 </style>
