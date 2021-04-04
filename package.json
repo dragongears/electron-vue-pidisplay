@@ -15,7 +15,7 @@
     "postuninstall": "electron-builder install-app-deps",
     "build:pi": "vue-cli-service electron:build --legacy --armv7l",
     "start": "NODE_ENV='production' startx /home/pi/electron-vue-pidisplay/node_modules/electron/dist/electron /home/pi/electron-vue-pidisplay/dist_electron/bundled &",
-    "rsync": "rsync -vaz --rsh=\"ssh -l pi\" ~/Dropbox/Projects/node/electron-vue-pidisplay-2020/dist_electron 192.168.0.81:/home/pi/electron-vue-pidisplay --exclude=node_modules",
+    "rsync": "rsync -vaz --rsh=\"ssh -l pi\" ~/Dropbox/Projects/node/electron-vue-pidisplay/dist_electron 192.168.0.81:/home/pi/electron-vue-pidisplay --exclude=node_modules",
     "build-icon": "npx electron-icon-builder --input=./public/icon.png --output=build --flatten"
   },
   "main": "background.js",
