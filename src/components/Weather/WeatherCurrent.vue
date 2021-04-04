@@ -4,17 +4,15 @@
       {{ capitalize(weather.current.weather[0].description) }}
     </div>
     <div class="temps-today">
-      <div>
-        <div class="precip">
-          <weather-icon
-            :condition="weather.current.weather[0].icon"
-            width="40"
-            height="40"
-            :color="iconColor"
-          ></weather-icon>
-          <div class="precip-percent">
-            {{ Math.floor((weather.daily[0].pop * 100) / 5) * 5 }}%
-          </div>
+      <div class="precip">
+        <weather-icon
+          :condition="weather.current.weather[0].icon"
+          width="40"
+          height="40"
+          :color="iconColor"
+        ></weather-icon>
+        <div class="precip-percent">
+          {{ Math.floor((weather.daily[0].pop * 100) / 5) * 5 }}%
         </div>
       </div>
       <div class="current-temp">{{ Math.floor(weather.current.temp) }}°</div>

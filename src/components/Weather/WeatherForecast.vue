@@ -14,8 +14,8 @@
         <div class="forcast-day__precip">
           {{ Math.floor((day.pop * 100) / 5) * 5 }}%
         </div>
-        <div>{{ Math.floor(day.temp.max) }}</div>
-        <div>{{ Math.floor(day.temp.min) }}</div>
+        <div>{{ Math.floor(day.temp.max) }}°</div>
+        <div>{{ Math.floor(day.temp.min) }}°</div>
       </div>
     </template>
   </div>

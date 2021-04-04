@@ -60,7 +60,7 @@ export default {
 
               if (
                 this.slideshowMaxImages > this.images.length ||
-                this.slideshowMaxImages == 0
+                this.slideshowMaxImages === 0
               ) {
                 this.max = this.images.length;
               } else {
