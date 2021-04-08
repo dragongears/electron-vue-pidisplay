@@ -72,15 +72,15 @@ export default {
 }
 
 main {
-  font-family: 'Source Sans Pro', sans-serif;
-  display: flex;
-  justify-content: space-around;
   align-items: flex-start;
+  display: flex;
+  font-family: 'Source Sans Pro', sans-serif;
   height: 100vh;
-  width: 100vw;
-  max-width: 800px;
-  max-height: 480px;
+  justify-content: space-around;
   margin: auto;
+  max-height: 480px;
+  max-width: 800px;
+  width: 100vw;
 
   > section {
     height: 100%;
@@ -92,33 +92,27 @@ main {
   > .left-side {
     margin-left: 16px;
     margin-right: 8px;
-    width: 312px;
+    min-width: 220px;
+    width: 568px;
 
     .dat {
       margin-top: 2px;
     }
 
     .last-updated {
-      flex-grow: 1;
-      margin-bottom: 3px;
+      color: $primary-text-color;
       display: flex;
       flex-direction: column-reverse;
+      flex-grow: 1;
       font-size: 0.75em;
-      color: $primary-text-color;
+      margin-bottom: 3px;
     }
   }
 
   > .right-side {
     margin-left: 8px;
     margin-right: 16px;
-    width: 440px;
-
-    img {
-      margin-top: 20px;
-      max-width: 440px;
-      height: auto;
-      max-height: 440px;
-    }
+    width: 100%;
   }
 }
 </style>

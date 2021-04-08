@@ -104,8 +104,8 @@ export default {
 
 <style lang="scss">
 .slides {
-  position: relative;
   list-style-type: none;
+  position: relative;
 }
 
 .slide {
@@ -117,6 +117,13 @@ export default {
   transition: opacity 1s;
   width: 100%;
   z-index: 1;
+
+  img {
+    height: auto;
+    margin-top: 20px;
+    max-height: 440px;
+    max-width: 100%;
+  }
 }
 
 .showing {

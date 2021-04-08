@@ -49,15 +49,15 @@ export default {
 
 <style lang="scss">
 .forecast-daily {
-  margin-top: 8px;
+  align-items: flex-start;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  margin-top: 8px;
 
   .forecast-day {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 
   .forcast-day__precip {

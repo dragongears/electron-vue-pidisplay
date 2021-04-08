@@ -41,12 +41,12 @@ export default {
 @import '../assets/css/_variables.scss';
 
 .items {
+  align-items: center;
+  color: $primary-text-color;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 6px;
-  color: $primary-text-color;
   font-weight: bold;
+  margin-bottom: 6px;
 
   .time {
     font-size: 52px;

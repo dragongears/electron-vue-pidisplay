@@ -49,23 +49,23 @@ export default {
 
 <style lang="scss">
 .current-weather {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   font-size: 28px;
 
   .temps-today {
+    align-items: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
 
     .current-temp {
       font-size: 2em;
     }
 
     .hi-lo-today {
-      margin-left: 22px;
       font-size: 0.75em;
+      margin-left: 22px;
     }
 
     .precip {

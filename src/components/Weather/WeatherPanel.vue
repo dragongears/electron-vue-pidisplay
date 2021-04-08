@@ -93,9 +93,9 @@ export default {
 @import '../../assets/css/_variables.scss';
 
 .weather {
-  margin-top: 14px;
   color: $primary-text-color;
   font-weight: bold;
+  margin-top: 14px;
 
   .weather-summary {
     margin-top: 12px;
