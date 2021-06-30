@@ -4,8 +4,8 @@
       <date-and-time class="dat"> </date-and-time>
       <weather-panel
         :api-key="darkSkyApiKey"
-        latitude="26.194221"
-        longitude="-80.1447177"
+        latitude="33.751497"
+        longitude="-84.747714"
         @updated="showUpdateDateTime"
       >
       </weather-panel>
