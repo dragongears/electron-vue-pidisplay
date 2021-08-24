@@ -51,6 +51,7 @@ export default {
       images: [],
       max: 0,
       message: 'Waiting for Instagram data',
+      videoTimeout: null,
     };
   },
   watch: {
@@ -119,6 +120,7 @@ export default {
       const imgRef = `refImg${this.showing}`;
 
       if (this.isVideo(urlShowing)) {
+        this.videoTimeout = setTimeout(this.videoEnded, 3 * 60 * 1000);
         this.$refs[imgRef][0].play();
       } else {
         setTimeout(this.nextSlide, this.slideshowInterval);
@@ -128,6 +130,7 @@ export default {
       this.nextSlide();
     },
     videoEnded() {
+      clearTimeout(this.videoTimeout);
       this.nextSlide();
     },
   },
