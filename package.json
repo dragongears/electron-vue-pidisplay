@@ -1,6 +1,6 @@
 {
   "name": "electron-vue-pidisplay",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Electron Vue app",
   "author": "Art Dahm <art@dahm.com>",
   "private": true,
