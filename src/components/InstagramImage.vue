@@ -7,10 +7,12 @@
       :class="{ showing: index === showing }"
     >
       <video
-        muted
         v-if="isVideo(image.media_url)"
-        @ended="videoEnded"
         :ref="`refImg${index}`"
+        muted
+        @ended="videoEnded"
+        @stalled="videoEnded"
+        @suspend="videoEnded"
       >
         <source :src="image.media_url" type="video/mp4" />
         Sorry, your browser doesn't support embedded videos.
