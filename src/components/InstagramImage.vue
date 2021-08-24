@@ -6,7 +6,17 @@
       class="slide"
       :class="{ showing: index === showing }"
     >
-      <img :src="image.media_url" alt="" />
+      <video
+        muted
+        v-if="isVideo(image.media_url)"
+        @ended="videoEnded"
+        :ref="`refImg${index}`"
+      >
+        <source :src="image.media_url" type="video/mp4" />
+        Sorry, your browser doesn't support embedded videos.
+      </video>
+
+      <img :ref="`refImg${index}`" v-else :src="image.media_url" alt="" />
     </li>
   </ul>
   <div v-else>
@@ -43,9 +53,18 @@ export default {
       message: 'Waiting for Instagram data',
     };
   },
-  computed: {},
+  watch: {
+    images(newVal, oldVal) {
+      if (oldVal.length === 0) {
+        this.startSlideshow();
+      }
+    },
+  },
+  mounted() {
+    this.getImages();
+  },
   methods: {
-    getImage() {
+    getImages() {
       const fields = 'media_url';
       const url = `https://graph.instagram.com/me/media?fields=${fields}&access_token=${this.token}`;
 
@@ -78,26 +97,39 @@ export default {
           }
 
           if (this.updateInterval) {
-            setTimeout(this.getImage, this.updateInterval * 1000);
+            setTimeout(this.getImages, this.updateInterval * 1000);
           }
         })
         .catch((e) => {
           this.message = `${e.message} - ${new Date().toString()}`;
 
           if (this.updateInterval) {
-            setTimeout(this.getImage, this.updateInterval * 1000);
+            setTimeout(this.getImages, this.updateInterval * 1000);
           }
         });
     },
-    startSlideshow() {
-      setInterval(() => {
-        this.showing = this.showing <= 0 ? this.max - 1 : this.showing - 1;
-      }, this.slideshowInterval);
+    isVideo(url) {
+      const questionMarkPos = url.indexOf('?');
+      const ext = url.slice(questionMarkPos - 3, questionMarkPos).toLowerCase();
+      return ext === 'mp4';
     },
-  },
-  mounted() {
-    this.getImage();
-    this.startSlideshow();
+    nextSlide() {
+      this.showing = this.showing <= 0 ? this.max - 1 : this.showing - 1;
+      const urlShowing = this.images[this.showing].media_url;
+      const imgRef = `refImg${this.showing}`;
+
+      if (this.isVideo(urlShowing)) {
+        this.$refs[imgRef][0].play();
+      } else {
+        setTimeout(this.nextSlide, this.slideshowInterval);
+      }
+    },
+    startSlideshow() {
+      this.nextSlide();
+    },
+    videoEnded() {
+      this.nextSlide();
+    },
   },
 };
 </script>
@@ -123,6 +155,13 @@ export default {
     margin-top: 20px;
     max-height: 440px;
     max-width: 100%;
+  }
+
+  video {
+    margin-top: 20px;
+    max-height: 440px;
+    max-width: 100%;
+    width: 100%;
   }
 }
 
