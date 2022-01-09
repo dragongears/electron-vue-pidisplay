@@ -7,7 +7,7 @@
       :class="{ showing: index === showing }"
     >
       <video
-        v-if="isVideo(image.media_url)"
+        v-if="isVideo(image.media_type)"
         :ref="`refImg${index}`"
         muted
         @ended="videoEnded"
@@ -16,7 +16,7 @@
         Sorry, your browser doesn't support embedded videos.
       </video>
 
-      <img :ref="`refImg${index}`" v-else :src="image.media_url" alt="" />
+      <img v-else :ref="`refImg${index}`" :src="image.media_url" alt="" />
     </li>
   </ul>
   <div v-else>
@@ -66,7 +66,8 @@ export default {
   },
   methods: {
     getImages() {
-      const fields = 'media_url';
+      const fields =
+        'caption,id,media_type,media_url,permalink,thumbnail_url,timestamp,username';
       const url = `https://graph.instagram.com/me/media?fields=${fields}&access_token=${this.token}`;
 
       this.$http
@@ -109,17 +110,15 @@ export default {
           }
         });
     },
-    isVideo(url) {
-      const questionMarkPos = url.indexOf('?');
-      const ext = url.slice(questionMarkPos - 3, questionMarkPos).toLowerCase();
-      return ext === 'mp4';
+    isVideo(type) {
+      return type === 'VIDEO';
     },
     nextSlide() {
       this.showing = this.showing <= 0 ? this.max - 1 : this.showing - 1;
-      const urlShowing = this.images[this.showing].media_url;
+      const typeShowing = this.images[this.showing].media_type;
       const imgRef = `refImg${this.showing}`;
 
-      if (this.isVideo(urlShowing)) {
+      if (this.isVideo(typeShowing)) {
         this.videoTimeout = setTimeout(this.videoEnded, 3 * 60 * 1000);
         this.$refs[imgRef][0].play();
       } else {
